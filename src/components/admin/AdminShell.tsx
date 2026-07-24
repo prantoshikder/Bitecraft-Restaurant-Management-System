@@ -7,7 +7,7 @@ import { Layout, Menu, Avatar, Dropdown, Badge, Grid, Drawer, Tooltip } from "an
 import {
   FiBell, FiLogOut, FiMenu, FiExternalLink, FiSearch, FiUser, FiChevronDown,
 } from "react-icons/fi";
-import { NAV, NAV_GROUPS } from "./nav";
+import { navForRole, NAV_GROUPS } from "./nav";
 import type { SessionUser } from "@/lib/auth";
 
 const { Header, Sider, Content } = Layout;
@@ -46,20 +46,27 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
   useEffect(() => setMounted(true), []);
   const isMobile = mounted ? !screens.lg : false;
 
+  // Only the menu items this user's role is allowed to see.
+  const nav = navForRole(user.role);
+
   const activeKey =
-    NAV.filter((n) => (n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href)))
+    nav.filter((n) => (n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href)))
       .sort((a, b) => b.href.length - a.href.length)[0]?.key ?? "dashboard";
 
-  const menuItems = NAV_GROUPS.map((group) => ({
-    key: group,
-    type: "group" as const,
-    label: group,
-    children: NAV.filter((n) => n.group === group).map((n) => ({
-      key: n.key,
-      icon: <n.icon className="size-4" />,
-      label: <Link href={n.href}>{n.label}</Link>,
-    })),
-  }));
+  const menuItems = NAV_GROUPS.map((group) => {
+    const children = nav.filter((n) => n.group === group);
+    if (children.length === 0) return null;
+    return {
+      key: group,
+      type: "group" as const,
+      label: group,
+      children: children.map((n) => ({
+        key: n.key,
+        icon: <n.icon className="size-4" />,
+        label: <Link href={n.href}>{n.label}</Link>,
+      })),
+    };
+  }).filter(Boolean);
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
