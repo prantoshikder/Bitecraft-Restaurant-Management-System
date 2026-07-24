@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
@@ -28,7 +28,11 @@ export default function Reveal({
   className?: string;
   once?: boolean;
 }) {
+  const reduce = useReducedMotion();
   const { x, y } = offset[direction];
+
+  // Reduced motion: render content in its final, visible state — no transform, no fade.
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
@@ -54,6 +58,9 @@ export const staggerChild: Variants = {
 };
 
 export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
       className={className}

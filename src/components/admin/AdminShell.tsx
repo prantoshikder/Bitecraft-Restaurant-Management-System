@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Layout, Menu, Avatar, Dropdown, Badge, Grid, Drawer, Tooltip } from "antd";
@@ -34,10 +34,17 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
   const pathname = usePathname();
   const router = useRouter();
   const screens = useBreakpoint();
-  const isMobile = !screens.lg;
 
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // antd's useBreakpoint returns {} on the server and first client paint, which
+  // would briefly flag the layout as "mobile" and flash the sidebar closed on
+  // every refresh. Gate on mount and assume the desktop sidebar until we truly
+  // know the viewport — admin is desktop-first, so this matches SSR cleanly.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isMobile = mounted ? !screens.lg : false;
 
   const activeKey =
     NAV.filter((n) => (n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href)))

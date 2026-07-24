@@ -220,7 +220,7 @@ export default function CrudManager<T extends Row>({
         okText={editing ? "Save Changes" : `Create ${singular}`}
         confirmLoading={saving}
         width={640}
-        destroyOnHidden
+        forceRender
       >
         <Form form={form} layout="vertical" className="mt-4">
           <div className="grid grid-cols-2 gap-x-4">

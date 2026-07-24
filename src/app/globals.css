@@ -122,6 +122,56 @@
   }
 }
 
+/* ------------------------------------------------------------------ *
+   CSS entrance animations for above-the-fold content (hero, page
+   banners). These run the moment the stylesheet loads — no JavaScript
+   or hydration required — so critical content is never left invisible
+   during a slow first load. Below-the-fold sections keep using
+   Framer Motion's scroll reveal (they're off-screen, so hidden is fine).
+ * ------------------------------------------------------------------ */
+@keyframes bc-fade-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bc-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bc-scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up,
+.animate-fade-in,
+.animate-scale-in {
+  opacity: 0;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.animate-fade-up { animation-name: bc-fade-up; }
+.animate-fade-in { animation-name: bc-fade-in; }
+.animate-scale-in { animation-name: bc-scale-in; animation-duration: 1s; }
+
+/* Users who prefer reduced motion get the content instantly, fully visible. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-scale-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 9px;

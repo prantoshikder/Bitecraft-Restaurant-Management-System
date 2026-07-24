@@ -1,19 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { FiArrowRight, FiPlay } from "react-icons/fi";
-import { TbTruckDelivery, TbLeaf, TbHeadset } from "react-icons/tb";
 import SmartImage from "@/components/ui/SmartImage";
 import { IMG } from "@/lib/images";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { FiArrowRight, FiPlay } from "react-icons/fi";
+import { TbHeadset, TbLeaf, TbTruckDelivery } from "react-icons/tb";
 
 const PERKS = [
   { icon: TbTruckDelivery, title: "Free Delivery", text: "On orders over $30" },
   { icon: TbLeaf, title: "100% Fresh", text: "Premium quality" },
   { icon: TbHeadset, title: "24/7 Support", text: "We're here to help" },
 ];
-
-const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   return (
@@ -28,51 +26,43 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/80" />
+        <div className="absolute inset-0 bg-linear-to-r from-ink via-ink/95 to-ink/70" />
+        <div className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/80" />
         <div className="noise absolute inset-0 opacity-40" />
-        <div className="absolute -left-40 top-10 size-[420px] rounded-full bg-brand/12 blur-[130px]" />
-        <div className="absolute -right-24 bottom-0 size-[380px] rounded-full bg-accent/8 blur-[140px]" />
+        <div className="absolute -left-40 top-10 size-105 rounded-full bg-brand/12 blur-[130px]" />
+        <div className="absolute -right-24 bottom-0 size-95 rounded-full bg-accent/8 blur-[140px]" />
       </div>
 
       <div className="container-x grid items-center gap-14 pb-14 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
-        {/* Copy */}
+        {/* Copy — CSS-animated so it's visible the instant styles load (no JS wait) */}
         <div className="relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-            className="font-script text-4xl text-accent sm:text-5xl"
+          <p
+            className="animate-fade-up font-script text-4xl text-accent sm:text-5xl"
+            style={{ animationDelay: "0.05s" }}
           >
             Delicious Food
-          </motion.p>
+          </p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease }}
-            className="mt-2 text-[2.7rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.2rem]"
+          <h1
+            className="animate-fade-up mt-2 text-[2.7rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.2rem]"
+            style={{ animationDelay: "0.15s" }}
           >
             Made With
             <br />
             Love &amp; Passion
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.22, ease }}
-            className="mt-5 max-w-md text-sm leading-relaxed text-white/55"
+          <p
+            className="animate-fade-up mt-5 max-w-md text-sm leading-relaxed text-white/55"
+            style={{ animationDelay: "0.28s" }}
           >
-            Fresh ingredients, expert chefs and a cosy atmosphere come together to create
-            unforgettable moments — one plate at a time.
-          </motion.p>
+            Fresh ingredients, expert chefs and a cosy atmosphere come together
+            to create unforgettable moments — one plate at a time.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.32, ease }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+          <div
+            className="animate-fade-up mt-8 flex flex-wrap items-center gap-3"
+            style={{ animationDelay: "0.4s" }}
           >
             <Link href="/reservation" className="btn btn-primary">
               Book A Table <FiArrowRight className="size-4" />
@@ -80,17 +70,18 @@ export default function Hero() {
             <Link href="/menu" className="btn btn-ghost">
               <FiPlay className="size-3.5" /> Explore Menu
             </Link>
-          </motion.div>
+          </div>
 
           {/* Perks */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease }}
-            className="mt-12 grid max-w-xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/6 sm:grid-cols-3"
+          <div
+            className="animate-fade-up mt-12 grid max-w-xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/6 sm:grid-cols-3"
+            style={{ animationDelay: "0.52s" }}
           >
             {PERKS.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="flex items-center gap-3 bg-ink/70 px-4 py-4 backdrop-blur-sm">
+              <div
+                key={title}
+                className="flex items-center gap-3 bg-ink/70 px-4 py-4 backdrop-blur-sm"
+              >
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand/15 text-brand-light">
                   <Icon className="size-5" />
                 </span>
@@ -100,17 +91,12 @@ export default function Hero() {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Plate */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.2, ease }}
-          className="relative mx-auto aspect-square w-full max-w-[500px]"
-        >
-          {/* Rotating dotted ring */}
+        <div className="animate-scale-in relative mx-auto aspect-square w-full max-w-125">
+          {/* Rotating dotted ring (decorative — Framer Motion loops, no content hidden) */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 48, repeat: Infinity, ease: "linear" }}
@@ -140,28 +126,29 @@ export default function Hero() {
           </motion.div>
 
           {/* Floating stat chips */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.9, duration: 0.6, ease }}
-            className="absolute -left-2 top-10 rounded-2xl border border-white/10 bg-ink/85 px-4 py-3 backdrop-blur-md sm:-left-6"
+          <div
+            className="animate-fade-up absolute -left-2 top-10 rounded-2xl border border-white/10 bg-ink/85 px-4 py-3 backdrop-blur-md sm:-left-6"
+            style={{ animationDelay: "0.9s" }}
           >
-            <p className="text-[10px] uppercase tracking-widest text-white/40">Rated</p>
-            <p className="text-lg font-extrabold text-white">
-              4.9<span className="text-xs font-medium text-brand-light">/5.0</span>
+            <p className="text-[10px] uppercase tracking-widest text-white/40">
+              Rated
             </p>
-          </motion.div>
+            <p className="text-lg font-extrabold text-white">
+              4.9
+              <span className="text-xs font-medium text-brand-light">/5.0</span>
+            </p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.05, duration: 0.6, ease }}
-            className="absolute -right-2 bottom-16 rounded-2xl border border-white/10 bg-brand px-4 py-3 shadow-[0_20px_50px_-20px_rgba(140,179,63,0.9)] sm:-right-6"
+          <div
+            className="animate-fade-up absolute -right-2 bottom-16 rounded-2xl border border-white/10 bg-brand px-4 py-3 shadow-[0_20px_50px_-20px_rgba(140,179,63,0.9)] sm:-right-6"
+            style={{ animationDelay: "1.05s" }}
           >
-            <p className="text-[10px] uppercase tracking-widest text-white/70">Happy guests</p>
+            <p className="text-[10px] uppercase tracking-widest text-white/70">
+              Happy guests
+            </p>
             <p className="text-lg font-extrabold text-white">12,400+</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
