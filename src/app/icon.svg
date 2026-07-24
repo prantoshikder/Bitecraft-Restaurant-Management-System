@@ -1,0 +1,30 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a9cb62"/>
+      <stop offset="0.55" stop-color="#8cb33f"/>
+      <stop offset="1" stop-color="#6d8f2e"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded brand tile -->
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#bg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#sheen)"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="16.25" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <!-- Fork -->
+  <g stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M23 16 V27 a5 5 0 0 0 10 0 V16"/>
+    <path d="M28 32 V49"/>
+    <path d="M23 16 V25"/>
+    <path d="M33 16 V25"/>
+
+    <!-- Leaf / knife -->
+    <path d="M43 16 c-4 5 -5.5 10 -5.5 15 s1.5 6 4 6 4 -3 4 -8 -1 -8 -2.5 -13 Z" fill="#ffffff" fill-opacity="0.16"/>
+    <path d="M41.5 34 V49"/>
+  </g>
+</svg>
