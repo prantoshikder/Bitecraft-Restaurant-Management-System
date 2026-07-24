@@ -1,0 +1,146 @@
+/* Layer order: antd sits AFTER tailwind's base (preflight) so antd components
+   are not broken by preflight resets, but tailwind utilities still win. */
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #8cb33f;
+  --color-brand-dark: #6d8f2e;
+  --color-brand-light: #a9cb62;
+  --color-brand-soft: #eef4e0;
+  --color-ink: #0e1210;
+  --color-ink-2: #151b16;
+  --color-ink-3: #1d251d;
+  --color-cream: #f8f6f0;
+  --color-cream-2: #f1efe7;
+  --color-accent: #d7e64d;
+  --color-muted: #7b8478;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-script), cursive;
+
+  --shadow-soft: 0 18px 50px -20px rgba(16, 24, 16, 0.25);
+  --shadow-card: 0 10px 40px -18px rgba(16, 24, 16, 0.35);
+  --shadow-glow: 0 0 0 1px rgba(140, 179, 63, 0.25), 0 20px 50px -25px rgba(140, 179, 63, 0.55);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-brand);
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.85rem 1.6rem;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--color-brand);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-brand-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+  }
+  .btn-ghost:hover {
+    background: #fff;
+    color: var(--color-ink);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(14, 18, 16, 0.15);
+    color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+  }
+
+  .card-hover {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .noise {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 179, 63, 0.45);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand);
+}
+
+/* Hide number input spinners inside antd/site forms */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
