@@ -5,13 +5,7 @@ import { IMG } from "@/lib/images";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
-import { TbHeadset, TbLeaf, TbTruckDelivery } from "react-icons/tb";
-
-const PERKS = [
-  { icon: TbTruckDelivery, title: "Free Delivery", text: "On orders over $30" },
-  { icon: TbLeaf, title: "100% Fresh", text: "Premium quality" },
-  { icon: TbHeadset, title: "24/7 Support", text: "We're here to help" },
-];
+import { HERO_PERKS as PERKS } from "@/temp/home";
 
 export default function Hero() {
   return (

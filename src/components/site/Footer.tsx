@@ -2,26 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FiFacebook, FiInstagram, FiTwitter, FiYoutube, FiSend, FiCheck,
-} from "react-icons/fi";
+import { FiSend, FiCheck } from "react-icons/fi";
+import { QUICK_LINKS, SOCIALS } from "@/temp/layout";
 import Logo from "./Logo";
-
-const QUICK_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Menu", href: "/menu" },
-  { label: "Events", href: "/events" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-];
-
-const SOCIALS = [
-  { icon: FiFacebook, href: "#", label: "Facebook" },
-  { icon: FiInstagram, href: "#", label: "Instagram" },
-  { icon: FiTwitter, href: "#", label: "Twitter" },
-  { icon: FiYoutube, href: "#", label: "YouTube" },
-];
 
 export default function Footer() {
   const [email, setEmail] = useState("");

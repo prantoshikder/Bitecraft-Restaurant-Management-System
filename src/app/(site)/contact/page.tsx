@@ -2,37 +2,10 @@ import ContactForm from "@/components/site/ContactForm";
 import PageBanner from "@/components/site/PageBanner";
 import Reveal from "@/components/ui/Reveal";
 import { IMG } from "@/lib/images";
+import { INFO, MAP_EMBED_SRC } from "@/temp/contact";
 import type { Metadata } from "next";
-import { FiClock, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 
 export const metadata: Metadata = { title: "Contact Us" };
-
-const INFO = [
-  {
-    icon: FiPhone,
-    label: "Phone",
-    value: "(+123) 456 7890",
-    sub: "Mon - Sun, 10am - 11pm",
-  },
-  {
-    icon: FiMail,
-    label: "Email",
-    value: "hello@bitecraft.com",
-    sub: "We reply within 24 hours",
-  },
-  {
-    icon: FiMapPin,
-    label: "Address",
-    value: "123 Food Street, Melbourne",
-    sub: "Victoria, Australia",
-  },
-  {
-    icon: FiClock,
-    label: "Open Hours",
-    value: "10:00 AM - 11:00 PM",
-    sub: "Weekends till 12:00 AM",
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -81,7 +54,7 @@ export default function ContactPage() {
             <div className="h-full min-h-105 overflow-hidden rounded-3xl border border-ink/8">
               <iframe
                 title="BiteCraft location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=144.9531%2C-37.8186%2C144.9831%2C-37.8036&layer=mapnik&marker=-37.8111%2C144.9681"
+                src={MAP_EMBED_SRC}
                 className="h-full w-full"
                 loading="lazy"
               />

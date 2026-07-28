@@ -5,31 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import {
-  FiChevronRight,
-  FiClock,
-  FiMapPin,
-  FiMenu,
-  FiPhone,
-  FiX,
-} from "react-icons/fi";
+import { FiChevronRight, FiMenu, FiX } from "react-icons/fi";
+import { NAV, TOPBAR } from "@/temp/layout";
 import Logo from "./Logo";
-
-const NAV = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Menu", href: "/menu" },
-  { label: "Events", href: "/events" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
-
-const TOPBAR = [
-  { icon: FiPhone, label: "Call for Delivery", value: "(+123) 456 7890" },
-  { icon: FiClock, label: "Open Time", value: "Mon - Sun · 10AM - 11PM" },
-  { icon: FiMapPin, label: "Location", value: "Melbourne, Australia" },
-];
 
 export default function Header() {
   const pathname = usePathname();

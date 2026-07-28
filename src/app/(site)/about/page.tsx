@@ -5,19 +5,12 @@ import WhatWeDo from "@/components/site/sections/WhatWeDo";
 import WhyChooseUs from "@/components/site/sections/WhyChooseUs";
 import Chefs from "@/components/site/sections/Chefs";
 import Testimonials from "@/components/site/sections/Testimonials";
-import { TbToolsKitchen2, TbUsers, TbAward, TbMoodSmile } from "react-icons/tb";
 import Reveal from "@/components/ui/Reveal";
 import { list } from "@/lib/db";
 import { IMG } from "@/lib/images";
+import { STATS } from "@/temp/about";
 
 export const metadata: Metadata = { title: "About Us" };
-
-const STATS = [
-  { icon: TbToolsKitchen2, value: "45+", label: "Signature Dishes" },
-  { icon: TbUsers, value: "12.4K", label: "Happy Customers" },
-  { icon: TbAward, value: "18", label: "Awards Won" },
-  { icon: TbMoodSmile, value: "98%", label: "Satisfaction Rate" },
-];
 
 export default function AboutPage() {
   const reviews = list("reviews").filter((r) => r.approved);

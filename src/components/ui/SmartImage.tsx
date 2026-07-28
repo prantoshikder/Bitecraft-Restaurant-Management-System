@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image, { type ImageProps } from "next/image";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 /** Only strings that next/image can actually resolve — absolute http(s) URLs or
  *  root-relative paths. Anything else (empty, garbage, relative) would make
@@ -15,7 +15,11 @@ function isRenderableSrc(src: ImageProps["src"]): boolean {
   if (value.startsWith("data:")) return true;
   try {
     const url = new URL(value);
-    return (url.protocol === "http:" || url.protocol === "https:") && !!url.hostname && url.hostname.includes(".");
+    return (
+      (url.protocol === "http:" || url.protocol === "https:") &&
+      !!url.hostname &&
+      url.hostname.includes(".")
+    );
   } catch {
     return false;
   }
@@ -26,14 +30,19 @@ function isRenderableSrc(src: ImageProps["src"]): boolean {
  * fail (bad host, dead link, invalid URL) and a broken/crashing image would
  * ruin the premium look. This keeps the page alive no matter what URL is stored.
  */
-export default function SmartImage({ className, alt, src, ...props }: ImageProps) {
+export default function SmartImage({
+  className,
+  alt,
+  src,
+  ...props
+}: ImageProps) {
   const [failed, setFailed] = useState(false);
 
   if (failed || !isRenderableSrc(src)) {
     return (
       <div
         className={cn(
-          "flex items-center justify-center bg-gradient-to-br from-brand/25 via-brand/10 to-ink/20",
+          "flex items-center justify-center bg-linear-to-br from-brand/25 via-brand/10 to-ink/20",
           className,
         )}
         aria-label={alt}
@@ -46,5 +55,13 @@ export default function SmartImage({ className, alt, src, ...props }: ImageProps
     );
   }
 
-  return <Image {...props} src={src} alt={alt} className={className} onError={() => setFailed(true)} />;
+  return (
+    <Image
+      {...props}
+      src={src}
+      alt={alt}
+      className={className}
+      onError={() => setFailed(true)}
+    />
+  );
 }

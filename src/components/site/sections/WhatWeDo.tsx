@@ -1,29 +1,6 @@
-import { TbSalad, TbToolsKitchen2, TbChefHat, TbBellRinging } from "react-icons/tb";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Stagger, StaggerItem } from "@/components/ui/Reveal";
-
-const ITEMS = [
-  {
-    icon: TbSalad,
-    title: "Fresh Ingredients",
-    text: "We use only the freshest seasonal produce, sourced from local farms every morning.",
-  },
-  {
-    icon: TbChefHat,
-    title: "Expert Chefs",
-    text: "Our chefs bring years of fine-dining experience to every single plate they send out.",
-  },
-  {
-    icon: TbToolsKitchen2,
-    title: "Unique Recipes",
-    text: "Signature flavours you simply will not find anywhere else in the city.",
-  },
-  {
-    icon: TbBellRinging,
-    title: "Perfect Service",
-    text: "Warm, attentive and unhurried — hospitality the way it was meant to be.",
-  },
-];
+import { WHAT_WE_DO_ITEMS as ITEMS } from "@/temp/home";
 
 export default function WhatWeDo() {
   return (

@@ -263,10 +263,58 @@ export function buildSeed(): DB {
     published: true,
   }));
 
-  const gallery: DB["gallery"] = [
-    ...IMG.interiors.map((url, i) => ({ id: `gal-${i + 1}`, title: `Restaurant Ambience ${i + 1}`, url, category: "Ambience", createdAt: daysAgo(i * 3) })),
-    ...IMG.dishes.slice(0, 6).map((url, i) => ({ id: `gal-${i + 7}`, title: `Signature Dish ${i + 1}`, url, category: "Food", createdAt: daysAgo(i * 4) })),
+  // Each group becomes a tab on the public gallery page.
+  const galleryGroups: Array<{ category: string; titles: string[]; urls: string[] }> = [
+    {
+      category: "Ambience",
+      titles: ["Main Dining Room", "Warm Interior", "Evening Service", "The Bar", "Dinner Table", "Cafe Corner"],
+      urls: IMG.interiors,
+    },
+    {
+      category: "Food",
+      titles: ["Grilled Salmon", "Handmade Spaghetti", "Signature Burger", "Wood-Fired Pizza", "Fresh Pasta", "Chef's Plating", "Season Soup"],
+      urls: [0, 1, 2, 3, 8, 9, 15].map((i) => IMG.dishes[i]),
+    },
+    {
+      category: "Desserts",
+      titles: ["Chocolate Dessert", "Layer Cake", "Sweet Finish"],
+      urls: [6, 11, 12].map((i) => IMG.dishes[i]),
+    },
+    {
+      category: "Drinks",
+      titles: ["Fresh Juices", "House Cocktail"],
+      urls: [7, 10].map((i) => IMG.dishes[i]),
+    },
+    {
+      category: "Chefs",
+      titles: ["Head Chef At Work", "Pastry Section", "Grill Station", "Sous Chef", "Kitchen Brigade"],
+      urls: IMG.chefs,
+    },
+    {
+      category: "Events",
+      titles: ["Live Jazz Night", "Private Celebration", "Chef's Table Evening"],
+      urls: IMG.events,
+    },
+    {
+      category: "Bowls & Salads",
+      titles: ["Buddha Bowl", "Garden Salad", "Veg Bowl", "Healthy Bowl"],
+      urls: [4, 5, 13, 14].map((i) => IMG.dishes[i]),
+    },
   ];
+
+  let galleryIndex = 0;
+  const gallery: DB["gallery"] = galleryGroups.flatMap((group) =>
+    group.urls.map((url, i) => {
+      galleryIndex += 1;
+      return {
+        id: `gal-${galleryIndex}`,
+        title: group.titles[i] ?? `${group.category} ${i + 1}`,
+        url,
+        category: group.category,
+        createdAt: daysAgo(galleryIndex * 2),
+      };
+    }),
+  );
 
   const reviews: DB["reviews"] = [
     ["Emily R.", "Food Blogger", 5, "Absolutely the best steak in town. The service was flawless and the ambience made our anniversary unforgettable."],

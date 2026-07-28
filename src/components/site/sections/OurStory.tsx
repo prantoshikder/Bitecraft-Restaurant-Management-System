@@ -3,12 +3,7 @@ import { FiArrowRight, FiCheck } from "react-icons/fi";
 import SmartImage from "@/components/ui/SmartImage";
 import Reveal from "@/components/ui/Reveal";
 import { IMG } from "@/lib/images";
-
-const POINTS = [
-  "Locally sourced ingredients",
-  "Sustainable & ethical practices",
-  "Award winning restaurant",
-];
+import { OUR_STORY_POINTS as POINTS } from "@/temp/home";
 
 export default function OurStory() {
   return (

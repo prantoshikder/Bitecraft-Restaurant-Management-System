@@ -3,28 +3,11 @@ import ReservationForm from "@/components/site/ReservationForm";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { IMG } from "@/lib/images";
+import { PERKS } from "@/temp/reservation";
 import type { Metadata } from "next";
-import { FiCheck, FiClock, FiPhone, FiUsers } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 
 export const metadata: Metadata = { title: "Book A Table" };
-
-const PERKS = [
-  {
-    icon: FiClock,
-    title: "Flexible Timing",
-    text: "Lunch and dinner slots available every day of the week.",
-  },
-  {
-    icon: FiUsers,
-    title: "Any Group Size",
-    text: "From an intimate dinner for two to a party of thirty.",
-  },
-  {
-    icon: FiPhone,
-    title: "Instant Confirmation",
-    text: "Our team calls you back to confirm within minutes.",
-  },
-];
 
 export default function ReservationPage() {
   return (

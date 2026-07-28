@@ -3,19 +3,15 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
-import { TbTrendingUp, TbStar, TbSortAscending, TbSortDescending } from "react-icons/tb";
 import DishCard from "@/components/site/DishCard";
 import Select, { type SelectOption } from "@/components/ui/Select";
 import type { Category, Dish } from "@/lib/types";
+import { ALL_CATEGORY_TAB, SORT_OPTIONS, type SortKey } from "@/temp/menu";
 
-type SortKey = "popular" | "price-asc" | "price-desc" | "rating";
-
-const SORT_OPTIONS: SelectOption<SortKey>[] = [
-  { label: "Most Popular", value: "popular", icon: <TbTrendingUp className="size-4" /> },
-  { label: "Top Rated", value: "rating", icon: <TbStar className="size-4" /> },
-  { label: "Price: Low to High", value: "price-asc", icon: <TbSortAscending className="size-4" /> },
-  { label: "Price: High to Low", value: "price-desc", icon: <TbSortDescending className="size-4" /> },
-];
+/** The data file keeps icons as components; render them once here. */
+const SORT_CHOICES: SelectOption<SortKey>[] = SORT_OPTIONS.map(
+  ({ label, value, icon: Icon }) => ({ label, value, icon: <Icon className="size-4" /> }),
+);
 
 export default function MenuExplorer({ dishes, categories }: { dishes: Dish[]; categories: Category[] }) {
   const params = useSearchParams();
@@ -43,7 +39,7 @@ export default function MenuExplorer({ dishes, categories }: { dishes: Dish[]; c
     return sorted;
   }, [dishes, categories, active, query, sort]);
 
-  const tabs = [{ slug: "all", name: "All Menu" }, ...categories.map((c) => ({ slug: c.slug, name: c.name }))];
+  const tabs = [ALL_CATEGORY_TAB, ...categories.map((c) => ({ slug: c.slug, name: c.name }))];
 
   return (
     <section className="bg-cream py-16 lg:py-20">
@@ -80,7 +76,7 @@ export default function MenuExplorer({ dishes, categories }: { dishes: Dish[]; c
             <Select
               value={sort}
               onChange={setSort}
-              options={SORT_OPTIONS}
+              options={SORT_CHOICES}
               align="right"
               className="w-52"
             />
