@@ -15,3 +15,5 @@ data/db.json
 
 package-lock.json
 yarn.lock
+
+CLAUDE.md
