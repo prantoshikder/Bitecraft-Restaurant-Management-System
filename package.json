@@ -2,10 +2,40 @@
   "name": "bitecraft-restaurant-management-system",
   "version": "1.0.0",
   "private": true,
+  "description": "A complete restaurant platform — customer website and full admin panel — built with Next.js 15, Tailwind CSS 4 and Ant Design 5.",
+  "author": {
+    "name": "Pranto Shikder",
+    "email": "prantoshikder24@gmail.com",
+    "url": "https://github.com/prantoshikder"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System/issues"
+  },
+  "keywords": [
+    "restaurant",
+    "restaurant-management-system",
+    "admin-dashboard",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "ant-design"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
+    "dev:webpack": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "rm -rf .next tsconfig.tsbuildinfo",
     "lint": "next lint"
   },
   "dependencies": {

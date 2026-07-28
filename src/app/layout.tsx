@@ -29,11 +29,21 @@ export const metadata: Metadata = {
     "book a table",
     "food delivery",
   ],
+  authors: [{ name: "Pranto Shikder", url: "https://github.com/prantoshikder" }],
+  creator: "Pranto Shikder",
+  publisher: "Pranto Shikder",
   openGraph: {
     title: "BiteCraft — Delicious Food Made With Love & Passion",
     description:
       "Fresh ingredients, expert chefs and a cosy atmosphere come together to create unforgettable moments.",
     type: "website",
+    siteName: "BiteCraft",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BiteCraft — Delicious Food Made With Love & Passion",
+    description:
+      "Fresh ingredients, expert chefs and a cosy atmosphere come together to create unforgettable moments.",
   },
 };
 

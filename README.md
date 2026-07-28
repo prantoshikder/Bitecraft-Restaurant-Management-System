@@ -12,8 +12,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Ant Design](https://img.shields.io/badge/Ant%20Design-5.29-0170FE?style=flat-square&logo=antdesign&logoColor=white)](https://ant.design)
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12-0055FF?style=flat-square&logo=framer&logoColor=white)](https://motion.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8cb33f?style=flat-square)](LICENSE)
 
-[Quick Start](#-quick-start) · [Features](#-features) · [Admin Panel](#-admin-panel) · [Architecture](#-architecture) · [API](#-api-reference) · [Customising](#-customising)
+[Quick Start](#-quick-start) · [Features](#-features) · [Admin Panel](#-admin-panel) · [Architecture](#-architecture) · [API](#-api-reference) · [Customising](#-customising) · [Author](#-author)
 
 </div>
 
@@ -35,10 +36,14 @@ Everything runs out of the box — no database setup, no environment variables, 
 ## 🚀 Quick Start
 
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System.git
+cd Bitecraft-Restaurant-Management-System
+
+# 2. Install dependencies
 npm install
 
-# 2. Start the dev server
+# 3. Start the dev server
 npm run dev
 ```
 
@@ -48,11 +53,20 @@ Open **[http://localhost:3000](http://localhost:3000)** — the demo data seeds 
 
 | Command | What it does |
 | :-- | :-- |
-| `npm run dev` | Start the development server on port 3000 |
+| `npm run dev` | Start the development server on port 3000 (Turbopack) |
+| `npm run dev:webpack` | Same, but with the legacy webpack dev server |
 | `npm run build` | Production build (also the project's type-check gate) |
 | `npm start` | Serve the production build |
+| `npm run clean` | Remove `.next/` and the TS build cache |
 
-> **Requirements:** Node.js 18.18+ (Node 20 LTS recommended).
+> **Requirements:** Node.js 18.18+ (Node 20 LTS or newer recommended).
+>
+> **Why Turbopack?** The webpack dev server corrupts its server-side module
+> registry after a handful of hot reloads in this app and starts throwing
+> `__webpack_modules__[moduleId] is not a function` on every request until it's
+> restarted. Turbopack doesn't, and it recompiles in ~25 ms instead of ~200 ms.
+> If a dev server ever gets into a bad state, `npm run clean && npm run dev`
+> resets it.
 
 ---
 
@@ -255,8 +269,28 @@ This project ships as a complete, self-contained demo. Harden these before deplo
 
 ---
 
+## 👤 Author
+
+**Pranto Shikder**
+
+[![GitHub](https://img.shields.io/badge/GitHub-prantoshikder-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/prantoshikder)
+[![Email](https://img.shields.io/badge/Email-prantoshikder24@gmail.com-8cb33f?style=flat-square&logo=gmail&logoColor=white)](mailto:prantoshikder24@gmail.com)
+
+Designed, built and maintained by Pranto Shikder. Issues and pull requests are welcome on the
+[repository](https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System/issues).
+
+---
+
+## 📄 License
+
+Released under the [MIT License](LICENSE) — © 2026 Pranto Shikder.
+
+---
+
 <div align="center">
 
-**Built with Next.js 15 · Made with 🫒 and a lot of coffee**
+**Built with Next.js 15 by [Pranto Shikder](https://github.com/prantoshikder) · Made with 🫒 and a lot of coffee**
+
+⭐ If this project helped you, consider giving it a star!
 
 </div>

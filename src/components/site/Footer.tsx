@@ -111,7 +111,19 @@ export default function Footer() {
 
       <div className="border-t border-white/8">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/40 sm:flex-row">
-          <p>© {new Date().getFullYear()} BiteCraft Restaurant. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} BiteCraft Restaurant. All rights reserved. Designed &amp;
+            built by{" "}
+            <a
+              href="https://github.com/prantoshikder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/60 transition-colors hover:text-brand-light"
+            >
+              Pranto Shikder
+            </a>
+            .
+          </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="transition-colors hover:text-brand-light">Privacy Policy</Link>
             <Link href="/terms" className="transition-colors hover:text-brand-light">Terms &amp; Conditions</Link>
