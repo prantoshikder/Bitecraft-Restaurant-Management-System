@@ -1,19 +1,33 @@
+import JsonLd from "@/components/seo/JsonLd";
 import PageBanner from "@/components/site/PageBanner";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { list } from "@/lib/db";
 import { IMG } from "@/lib/images";
+import { breadcrumbSchema, eventSchema, pageMeta } from "@/lib/seo";
 import { formatDate, money } from "@/lib/utils";
-import type { Metadata } from "next";
 import { FiCalendar, FiClock, FiUsers } from "react-icons/fi";
 
-export const metadata: Metadata = { title: "Events" };
+export const metadata = pageMeta({
+  title: "Events",
+  description:
+    "Tasting nights, chef's table dinners and live music at PlateCraft. See what's coming up and reserve your seat.",
+  path: "/events",
+  image: IMG.events[0],
+});
 
 export default function EventsPage() {
   const events = list("events").filter((e) => e.published);
 
   return (
     <>
+      {/* Event markup makes these eligible for Google's event listings. */}
+      <JsonLd
+        data={[
+          ...events.map((event) => eventSchema(event)),
+          breadcrumbSchema([{ name: "Events", path: "/events" }]),
+        ]}
+      />
       <PageBanner
         title="Upcoming Events"
         subtitle="Join Us"

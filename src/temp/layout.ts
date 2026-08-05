@@ -18,11 +18,12 @@ export type NavLink = { label: string; href: string };
 export type InfoItem = { icon: IconType; label: string; value: string };
 export type SocialLink = { icon: IconType; href: string; label: string };
 
-/** Header — primary navigation. */
+/** Header — primary navigation. Ordered by commercial value, not by sitemap depth. */
 export const NAV: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Menu", href: "/menu" },
+  { label: "Offers", href: "/offers" },
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
@@ -36,7 +37,7 @@ export const TOPBAR: InfoItem[] = [
   { icon: FiMapPin, label: "Location", value: "Melbourne, Australia" },
 ];
 
-/** Footer — quick links column. */
+/** Footer — quick links, first column. */
 export const QUICK_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -44,6 +45,20 @@ export const QUICK_LINKS: NavLink[] = [
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
+];
+
+/**
+ * Footer — second links column. These are the conversion pages: they get no
+ * room in the header, so the footer is what makes them crawlable from every
+ * page and gives them internal links to rank on.
+ */
+export const MORE_LINKS: NavLink[] = [
+  { label: "Special Offers", href: "/offers" },
+  { label: "Book a Table", href: "/reservation" },
+  { label: "Catering & Events", href: "/catering" },
+  { label: "Gift Cards", href: "/gift-cards" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 /** Footer — social icons. */

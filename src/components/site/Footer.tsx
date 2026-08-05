@@ -1,28 +1,9 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
-import { FiSend, FiCheck } from "react-icons/fi";
-import { QUICK_LINKS, SOCIALS } from "@/temp/layout";
+import { MORE_LINKS, QUICK_LINKS, SOCIALS } from "@/temp/layout";
+import NewsletterForm from "./NewsletterForm";
 import Logo from "./Logo";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [done, setDone] = useState(false);
-
-  async function subscribe(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email.trim()) return;
-    await fetch("/api/subscribers", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    }).catch(() => null);
-    setDone(true);
-    setEmail("");
-    setTimeout(() => setDone(false), 3500);
-  }
-
   return (
     <footer className="bg-ink text-white">
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -46,20 +27,37 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="mb-5 text-sm font-bold uppercase tracking-wider">Quick Links</h4>
-          <ul className="space-y-3">
-            {QUICK_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-sm text-white/50 transition-colors hover:text-brand-light"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="grid grid-cols-2 gap-6">
+          <div>
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-wider">Quick Links</h4>
+            <ul className="space-y-3">
+              {QUICK_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-white/50 transition-colors hover:text-brand-light"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-wider">Explore</h4>
+            <ul className="space-y-3">
+              {MORE_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-white/50 transition-colors hover:text-brand-light"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div>
@@ -85,27 +83,7 @@ export default function Footer() {
           <p className="mb-4 text-sm leading-relaxed text-white/50">
             Subscribe to get special offers, seasonal menus and event invitations.
           </p>
-          <form onSubmit={subscribe} className="space-y-3">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your Email"
-              className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition-colors focus:border-brand"
-            />
-            <button type="submit" className="btn btn-primary w-full">
-              {done ? (
-                <>
-                  <FiCheck className="size-4" /> Subscribed
-                </>
-              ) : (
-                <>
-                  Subscribe <FiSend className="size-4" />
-                </>
-              )}
-            </button>
-          </form>
+          <NewsletterForm tone="dark" source="footer" />
         </div>
       </div>
 

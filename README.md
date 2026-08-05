@@ -6,6 +6,9 @@
 
 **A complete, production-style restaurant platform — customer website and full admin panel in one Next.js app.**
 
+### 🔗 [platecraft-ps.vercel.app](https://platecraft-ps.vercel.app)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-platecraft--ps.vercel.app-8cb33f?style=flat-square&logo=vercel&logoColor=white)](https://platecraft-ps.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -14,7 +17,7 @@
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12-0055FF?style=flat-square&logo=framer&logoColor=white)](https://motion.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8cb33f?style=flat-square)](LICENSE)
 
-[Quick Start](#-quick-start) · [Features](#-features) · [Admin Panel](#-admin-panel) · [Architecture](#-architecture) · [API](#-api-reference) · [Customising](#-customising) · [Author](#-author)
+[Live Demo](https://platecraft-ps.vercel.app) · [Quick Start](#-quick-start) · [Features](#-features) · [Admin Panel](#-admin-panel) · [Architecture](#-architecture) · [API](#-api-reference) · [Customising](#-customising) · [Author](#-author)
 
 </div>
 
@@ -48,6 +51,8 @@ npm run dev
 ```
 
 Open **[http://localhost:3000](http://localhost:3000)** — the demo data seeds itself on first request.
+
+> Prefer to just look around? The same build is deployed at **[platecraft-ps.vercel.app](https://platecraft-ps.vercel.app)** — the admin panel is at [/admin](https://platecraft-ps.vercel.app/admin) with the demo logins below.
 
 ### Available scripts
 

@@ -1,6 +1,8 @@
+import JsonLd from "@/components/seo/JsonLd";
 import PageBanner from "@/components/site/PageBanner";
 import SmartImage from "@/components/ui/SmartImage";
 import { list } from "@/lib/db";
+import { articleSchema, breadcrumbSchema, pageMeta } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -12,7 +14,18 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = list("posts").find((p) => p.slug === slug);
-  return { title: post?.title ?? "Blog" };
+  if (!post) return { title: "Blog" };
+
+  return {
+    ...pageMeta({
+      title: post.title,
+      description: post.excerpt,
+      path: `/blog/${post.slug}`,
+      image: post.cover,
+      type: "article",
+    }),
+    authors: [{ name: post.author }],
+  };
 }
 
 export default async function BlogDetailPage({ params }: Props) {
@@ -26,6 +39,15 @@ export default async function BlogDetailPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          articleSchema(post),
+          breadcrumbSchema([
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <PageBanner
         title={post.title}
         subtitle={post.category}
