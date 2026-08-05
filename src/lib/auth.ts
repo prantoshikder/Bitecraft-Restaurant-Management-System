@@ -1,4 +1,4 @@
-export const AUTH_COOKIE = "bitecraft_session";
+export const AUTH_COOKIE = "platecraft_session";
 
 export type Role = "admin" | "manager" | "staff";
 
@@ -15,7 +15,7 @@ export const USERS: Array<SessionUser & { password: string }> = [
   {
     id: "usr-1",
     name: "Marcus Hall",
-    email: "admin@bitecraft.com",
+    email: "admin@platecraft.com",
     password: "admin123",
     role: "admin",
     avatar: "https://i.pravatar.cc/150?img=12",
@@ -23,7 +23,7 @@ export const USERS: Array<SessionUser & { password: string }> = [
   {
     id: "usr-2",
     name: "Sophia Brown",
-    email: "manager@bitecraft.com",
+    email: "manager@platecraft.com",
     password: "manager123",
     role: "manager",
     avatar: "https://i.pravatar.cc/150?img=45",
@@ -31,7 +31,7 @@ export const USERS: Array<SessionUser & { password: string }> = [
   {
     id: "usr-3",
     name: "Nina Patel",
-    email: "staff@bitecraft.com",
+    email: "staff@platecraft.com",
     password: "staff123",
     role: "staff",
     avatar: "https://i.pravatar.cc/150?img=32",

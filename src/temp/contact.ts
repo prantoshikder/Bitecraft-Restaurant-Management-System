@@ -13,7 +13,7 @@ export type ContactCard = {
 /** The four info cards above the message form. */
 export const INFO: ContactCard[] = [
   { icon: FiPhone, label: "Phone", value: "(+123) 456 7890", sub: "Mon - Sun, 10am - 11pm" },
-  { icon: FiMail, label: "Email", value: "hello@bitecraft.com", sub: "We reply within 24 hours" },
+  { icon: FiMail, label: "Email", value: "hello@platecraft.com", sub: "We reply within 24 hours" },
   { icon: FiMapPin, label: "Address", value: "123 Food Street, Melbourne", sub: "Victoria, Australia" },
   { icon: FiClock, label: "Open Hours", value: "10:00 AM - 11:00 PM", sub: "Weekends till 12:00 AM" },
 ];

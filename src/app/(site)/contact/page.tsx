@@ -53,7 +53,7 @@ export default function ContactPage() {
           <Reveal direction="left" delay={0.1}>
             <div className="h-full min-h-105 overflow-hidden rounded-3xl border border-ink/8">
               <iframe
-                title="BiteCraft location"
+                title="PlateCraft location"
                 src={MAP_EMBED_SRC}
                 className="h-full w-full"
                 loading="lazy"

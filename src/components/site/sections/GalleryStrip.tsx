@@ -14,7 +14,7 @@ export default function GalleryStrip() {
           <span className="eyebrow">Gallery</span>
           <h2 className="section-title mt-3 max-w-[240px] text-ink">A Feast For Your Eyes</h2>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-            A glimpse into the dishes, the room and the little moments that make BiteCraft special.
+            A glimpse into the dishes, the room and the little moments that make PlateCraft special.
           </p>
           <Link href="/gallery" className="btn btn-primary mt-6">
             View Full Gallery <FiArrowRight className="size-4" />

@@ -17,11 +17,11 @@ const script = Dancing_Script({
 
 export const metadata: Metadata = {
   title: {
-    default: "BiteCraft — Delicious Food Made With Love & Passion",
-    template: "%s | BiteCraft",
+    default: "PlateCraft — Delicious Food Made With Love & Passion",
+    template: "%s | PlateCraft",
   },
   description:
-    "BiteCraft is a premium restaurant experience in Melbourne. Book a table, explore our seasonal menu and taste food crafted with love and passion.",
+    "PlateCraft is a premium restaurant experience in Melbourne. Book a table, explore our seasonal menu and taste food crafted with love and passion.",
   keywords: [
     "restaurant",
     "fine dining",
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
   creator: "Pranto Shikder",
   publisher: "Pranto Shikder",
   openGraph: {
-    title: "BiteCraft — Delicious Food Made With Love & Passion",
+    title: "PlateCraft — Delicious Food Made With Love & Passion",
     description:
       "Fresh ingredients, expert chefs and a cosy atmosphere come together to create unforgettable moments.",
     type: "website",
-    siteName: "BiteCraft",
+    siteName: "PlateCraft",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BiteCraft — Delicious Food Made With Love & Passion",
+    title: "PlateCraft — Delicious Food Made With Love & Passion",
     description:
       "Fresh ingredients, expert chefs and a cosy atmosphere come together to create unforgettable moments.",
   },

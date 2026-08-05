@@ -112,7 +112,7 @@ export default function Footer() {
       <div className="border-t border-white/8">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/40 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} BiteCraft Restaurant. All rights reserved. Designed &amp;
+            © {new Date().getFullYear()} PlateCraft Restaurant. All rights reserved. Designed &amp;
             built by{" "}
             <a
               href="https://github.com/prantoshikder"

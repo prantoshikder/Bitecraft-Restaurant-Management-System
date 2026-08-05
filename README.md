@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍽️ BiteCraft
+# 🍽️ PlateCraft
 
 ### Restaurant Management System
 
@@ -22,7 +22,7 @@
 
 ## ✨ Overview
 
-BiteCraft is a premium dark + olive-green restaurant platform that ships **two complete applications** behind a single codebase:
+PlateCraft is a premium dark + olive-green restaurant platform that ships **two complete applications** behind a single codebase:
 
 | | |
 | :-- | :-- |
@@ -37,8 +37,8 @@ Everything runs out of the box — no database setup, no environment variables, 
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System.git
-cd Bitecraft-Restaurant-Management-System
+git clone https://github.com/prantoshikder/Platecraft-Restaurant-Management-System.git
+cd Platecraft-Restaurant-Management-System
 
 # 2. Install dependencies
 npm install
@@ -78,9 +78,9 @@ Visit **[http://localhost:3000/admin](http://localhost:3000/admin)** (or click *
 
 | Role | Email | Password | Access level |
 | :-- | :-- | :-- | :-- |
-| 👑 **Admin** | `admin@bitecraft.com` | `admin123` | Everything, including Settings |
-| 🧑‍💼 **Manager** | `manager@bitecraft.com` | `manager123` | Everything except Settings |
-| 🧑‍🍳 **Staff** | `staff@bitecraft.com` | `staff123` | Operations only — orders, reservations, tables, menu, inventory, messages |
+| 👑 **Admin** | `admin@platecraft.com` | `admin123` | Everything, including Settings |
+| 🧑‍💼 **Manager** | `manager@platecraft.com` | `manager123` | Everything except Settings |
+| 🧑‍🍳 **Staff** | `staff@platecraft.com` | `staff123` | Operations only — orders, reservations, tables, menu, inventory, messages |
 
 Menus and routes are filtered per role by the same rule set, so a staff member never sees — or can navigate to — a manager-only page.
 
@@ -277,7 +277,7 @@ This project ships as a complete, self-contained demo. Harden these before deplo
 [![Email](https://img.shields.io/badge/Email-prantoshikder24@gmail.com-8cb33f?style=flat-square&logo=gmail&logoColor=white)](mailto:prantoshikder24@gmail.com)
 
 Designed, built and maintained by Pranto Shikder. Issues and pull requests are welcome on the
-[repository](https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System/issues).
+[repository](https://github.com/prantoshikder/Platecraft-Restaurant-Management-System/issues).
 
 ---
 

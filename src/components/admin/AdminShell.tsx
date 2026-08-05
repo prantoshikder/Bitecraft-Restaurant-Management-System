@@ -1,14 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import type { SessionUser } from "@/lib/auth";
+import {
+  Avatar,
+  Badge,
+  Drawer,
+  Dropdown,
+  Grid,
+  Layout,
+  Menu,
+  Tooltip,
+} from "antd";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Layout, Menu, Avatar, Dropdown, Badge, Grid, Drawer, Tooltip } from "antd";
+import { useEffect, useState } from "react";
 import {
-  FiBell, FiLogOut, FiMenu, FiExternalLink, FiSearch, FiUser, FiChevronDown,
+  FiBell,
+  FiChevronDown,
+  FiExternalLink,
+  FiLogOut,
+  FiMenu,
+  FiSearch,
+  FiUser,
 } from "react-icons/fi";
-import { navForRole, NAV_GROUPS } from "./nav";
-import type { SessionUser } from "@/lib/auth";
+import { NAV_GROUPS, navForRole } from "./nav";
 
 const { Header, Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -17,20 +32,37 @@ function LogoMark({ collapsed }: { collapsed: boolean }) {
   return (
     <Link href="/admin" className="flex h-16 items-center gap-2.5 px-5">
       <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand">
-        <svg viewBox="0 0 24 24" className="size-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M7 3v8a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3" /><path d="M9 13v8" /><path d="M17 3c-1.5 2-2 4-2 6s.5 3 2 3 2-1 2-3-.5-4-2-6Z" /><path d="M17 12v9" />
+        <svg
+          viewBox="0 0 24 24"
+          className="size-5 text-white"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M7 3v8a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3" />
+          <path d="M9 13v8" />
+          <path d="M17 3c-1.5 2-2 4-2 6s.5 3 2 3 2-1 2-3-.5-4-2-6Z" />
+          <path d="M17 12v9" />
         </svg>
       </span>
       {!collapsed ? (
         <span className="text-lg font-extrabold tracking-tight text-white">
-          Bite<span className="text-brand">Craft</span>
+          Plate<span className="text-brand">Craft</span>
         </span>
       ) : null}
     </Link>
   );
 }
 
-export default function AdminShell({ user, children }: { user: SessionUser; children: React.ReactNode }) {
+export default function AdminShell({
+  user,
+  children,
+}: {
+  user: SessionUser;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const screens = useBreakpoint();
@@ -50,7 +82,12 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
   const nav = navForRole(user.role);
 
   const activeKey =
-    nav.filter((n) => (n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href)))
+    nav
+      .filter((n) =>
+        n.href === "/admin"
+          ? pathname === "/admin"
+          : pathname.startsWith(n.href),
+      )
       .sort((a, b) => b.href.length - a.href.length)[0]?.key ?? "dashboard";
 
   const menuItems = NAV_GROUPS.map((group) => {
@@ -93,7 +130,8 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
           target="_blank"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/8 hover:text-white"
         >
-          <FiExternalLink className="size-4" /> {!collapsed || isMobile ? "View Website" : null}
+          <FiExternalLink className="size-4" />{" "}
+          {!collapsed || isMobile ? "View Website" : null}
         </Link>
       </div>
     </div>
@@ -141,7 +179,9 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
         >
           <button
             type="button"
-            onClick={() => (isMobile ? setMobileOpen(true) : setCollapsed((v) => !v))}
+            onClick={() =>
+              isMobile ? setMobileOpen(true) : setCollapsed((v) => !v)
+            }
             aria-label="Toggle sidebar"
             className="grid size-10 place-items-center rounded-lg text-ink/60 transition-colors hover:bg-ink/5"
           >
@@ -171,21 +211,56 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
             <Dropdown
               menu={{
                 items: [
-                  { key: "role", disabled: true, label: <span className="text-xs capitalize text-muted">{user.role} account</span> },
+                  {
+                    key: "role",
+                    disabled: true,
+                    label: (
+                      <span className="text-xs capitalize text-muted">
+                        {user.role} account
+                      </span>
+                    ),
+                  },
                   { type: "divider" },
-                  { key: "profile", icon: <FiUser />, label: <Link href="/admin/settings">Profile &amp; Settings</Link> },
-                  { key: "site", icon: <FiExternalLink />, label: <Link href="/" target="_blank">View Website</Link> },
+                  {
+                    key: "profile",
+                    icon: <FiUser />,
+                    label: (
+                      <Link href="/admin/settings">Profile &amp; Settings</Link>
+                    ),
+                  },
+                  {
+                    key: "site",
+                    icon: <FiExternalLink />,
+                    label: (
+                      <Link href="/" target="_blank">
+                        View Website
+                      </Link>
+                    ),
+                  },
                   { type: "divider" },
-                  { key: "logout", icon: <FiLogOut />, danger: true, label: "Sign Out", onClick: logout },
+                  {
+                    key: "logout",
+                    icon: <FiLogOut />,
+                    danger: true,
+                    label: "Sign Out",
+                    onClick: logout,
+                  },
                 ],
               }}
               trigger={["click"]}
             >
-              <button type="button" className="flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition-colors hover:bg-ink/5">
-                <Avatar src={user.avatar} size={34}>{user.name[0]}</Avatar>
+              <button
+                type="button"
+                className="flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition-colors hover:bg-ink/5"
+              >
+                <Avatar src={user.avatar} size={34}>
+                  {user.name[0]}
+                </Avatar>
                 <div className="hidden text-left leading-tight sm:block">
                   <p className="text-[13px] font-bold text-ink">{user.name}</p>
-                  <p className="text-[11px] capitalize text-muted">{user.role}</p>
+                  <p className="text-[11px] capitalize text-muted">
+                    {user.role}
+                  </p>
                 </div>
                 <FiChevronDown className="hidden size-4 text-muted sm:block" />
               </button>

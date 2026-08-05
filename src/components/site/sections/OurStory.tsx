@@ -15,7 +15,7 @@ export default function OurStory() {
             Crafting Moments, Creating Memories
           </h2>
           <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted">
-            At BiteCraft we believe that food is more than just a meal — it is an experience. Our
+            At PlateCraft we believe that food is more than just a meal — it is an experience. Our
             passion for quality and hospitality drives everything we do, from the first knife cut in
             the kitchen to the last plate cleared from your table.
           </p>
@@ -52,13 +52,13 @@ export default function OurStory() {
         <Reveal direction="left" delay={0.12}>
           <div className="grid grid-cols-2 grid-rows-[200px_150px] gap-4 sm:grid-rows-[240px_180px]">
             <div className="relative col-span-1 row-span-1 overflow-hidden rounded-2xl">
-              <SmartImage src={IMG.interiors[0]} alt="Guests dining at BiteCraft" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
+              <SmartImage src={IMG.interiors[0]} alt="Guests dining at PlateCraft" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
             </div>
             <div className="relative col-span-1 row-span-2 overflow-hidden rounded-2xl">
-              <SmartImage src={IMG.interiors[1]} alt="BiteCraft chef at work" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
+              <SmartImage src={IMG.interiors[1]} alt="PlateCraft chef at work" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
             </div>
             <div className="relative col-span-1 row-span-1 overflow-hidden rounded-2xl">
-              <SmartImage src={IMG.interiors[2]} alt="BiteCraft dining room" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
+              <SmartImage src={IMG.interiors[2]} alt="PlateCraft dining room" fill sizes="(max-width:1024px) 45vw, 300px" className="object-cover transition-transform duration-700 hover:scale-110" />
             </div>
           </div>
         </Reveal>

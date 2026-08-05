@@ -20,7 +20,7 @@ type CartContext = {
 };
 
 const TAX_RATE = 0.08;
-const STORAGE_KEY = "bitecraft.cart";
+const STORAGE_KEY = "platecraft.cart";
 
 const Ctx = createContext<CartContext | null>(null);
 

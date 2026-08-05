@@ -68,6 +68,6 @@ export const WHY_CHOOSE_US_FEATURES: FeatureItem[] = [
 /** Booking banner — contact info panel next to the reservation form. */
 export const BOOKING_CONTACT: ContactItem[] = [
   { icon: FiPhone, label: "Call Us", value: "(+123) 456 7890" },
-  { icon: FiMail, label: "Email Us", value: "hello@bitecraft.com" },
+  { icon: FiMail, label: "Email Us", value: "hello@platecraft.com" },
   { icon: FiMapPin, label: "Visit Us", value: "123 Food Street, Melbourne" },
 ];

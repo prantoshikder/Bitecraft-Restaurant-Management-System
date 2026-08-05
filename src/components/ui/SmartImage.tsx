@@ -49,7 +49,7 @@ export default function SmartImage({
         role="img"
       >
         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink/40">
-          BiteCraft
+          PlateCraft
         </span>
       </div>
     );

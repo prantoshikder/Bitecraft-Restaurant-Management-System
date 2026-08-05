@@ -8,9 +8,9 @@ import { useState } from "react";
 import { FiAlertCircle, FiArrowRight, FiLock, FiMail } from "react-icons/fi";
 
 const DEMO = [
-  { role: "Admin", email: "admin@bitecraft.com", password: "admin123" },
-  { role: "Manager", email: "manager@bitecraft.com", password: "manager123" },
-  { role: "Staff", email: "staff@bitecraft.com", password: "staff123" },
+  { role: "Admin", email: "admin@platecraft.com", password: "admin123" },
+  { role: "Manager", email: "manager@platecraft.com", password: "manager123" },
+  { role: "Staff", email: "staff@platecraft.com", password: "staff123" },
 ];
 
 export default function LoginForm() {
@@ -18,7 +18,7 @@ export default function LoginForm() {
   const params = useSearchParams();
   const next = params.get("next") || "/admin";
 
-  const [email, setEmail] = useState("admin@bitecraft.com");
+  const [email, setEmail] = useState("admin@platecraft.com");
   const [password, setPassword] = useState("admin123");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -66,11 +66,11 @@ export default function LoginForm() {
             </h1>
             <p className="mt-4 max-w-md text-sm text-white/50">
               Orders, reservations, menu, staff and analytics — everything you
-              need to run BiteCraft, in one beautiful dashboard.
+              need to run PlateCraft, in one beautiful dashboard.
             </p>
           </div>
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} BiteCraft Restaurant. Built by{" "}
+            © {new Date().getFullYear()} PlateCraft Restaurant. Built by{" "}
             <a
               href="https://github.com/prantoshikder"
               target="_blank"

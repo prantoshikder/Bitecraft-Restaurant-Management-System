@@ -161,7 +161,7 @@ export function buildSeed(): DB {
     id: `stf-${i + 1}`,
     name: s[0] as string,
     role: s[1] as string,
-    email: `${(s[0] as string).toLowerCase().split(" ")[0]}@bitecraft.com`,
+    email: `${(s[0] as string).toLowerCase().split(" ")[0]}@platecraft.com`,
     phone: `+1 (212) 555-${String(2000 + i * 13).slice(0, 4)}`,
     avatar: avatar(i + 20),
     salary: s[2] as number,
@@ -247,7 +247,7 @@ export function buildSeed(): DB {
   const posts: DB["posts"] = [
     ["New Summer Menu", "Try our new seasonal dishes crafted with the freshest produce of the season.", "Menu"],
     ["Chef's Special Night", "An evening of 7-course tasting hosted by our head chef Jonas Oliver.", "Events"],
-    ["Restaurant Awarded", "BiteCraft named Best Restaurant in Melbourne for the third year running.", "News"],
+    ["Restaurant Awarded", "PlateCraft named Best Restaurant in Melbourne for the third year running.", "News"],
     ["Behind The Scenes In Our Kitchen", "A rare look at how our brigade turns raw produce into plated art every night.", "Story"],
   ].map((p, i) => ({
     id: `post-${i + 1}`,
@@ -255,7 +255,7 @@ export function buildSeed(): DB {
     slug: p[0].toLowerCase().replace(/[^a-z0-9]+/g, "-"),
     excerpt: p[1],
     content:
-      `${p[1]}\n\nAt BiteCraft we believe great food starts long before the plate reaches your table. It starts at sunrise with our suppliers, continues through hours of preparation, and ends with a dish that carries the signature of the person who made it.\n\nOur team spends weeks developing every new recipe — tasting, adjusting, and tasting again — until the balance of flavour, texture and presentation feels effortless. That obsession is what keeps guests coming back season after season.\n\nCome and taste the difference for yourself. Book a table, bring the people you love, and let us take care of the rest.`,
+      `${p[1]}\n\nAt PlateCraft we believe great food starts long before the plate reaches your table. It starts at sunrise with our suppliers, continues through hours of preparation, and ends with a dish that carries the signature of the person who made it.\n\nOur team spends weeks developing every new recipe — tasting, adjusting, and tasting again — until the balance of flavour, texture and presentation feels effortless. That obsession is what keeps guests coming back season after season.\n\nCome and taste the difference for yourself. Book a table, bring the people you love, and let us take care of the rest.`,
     cover: IMG.blog[i % IMG.blog.length],
     author: ["Jonas Oliver", "Sophia Brown", "Marcus Hall", "Emma White"][i % 4],
     category: p[2],
@@ -369,9 +369,9 @@ export function buildSeed(): DB {
   const settings: DB["settings"] = [
     {
       id: "settings",
-      name: "BiteCraft",
+      name: "PlateCraft",
       tagline: "Delicious Food Made With Love & Passion",
-      email: "hello@bitecraft.com",
+      email: "hello@platecraft.com",
       phone: "+1 (123) 456 7890",
       address: "123 Food Street, Melbourne, Australia",
       openHours: "Monday - Friday: 10:00 AM - 11:00 PM",

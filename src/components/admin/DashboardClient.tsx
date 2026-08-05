@@ -72,7 +72,7 @@ export default function DashboardClient() {
     <>
       <PageHeader
         title="Dashboard"
-        subtitle="Welcome back, here's what's happening at BiteCraft today."
+        subtitle="Welcome back, here's what's happening at PlateCraft today."
       />
 
       {/* KPIs */}

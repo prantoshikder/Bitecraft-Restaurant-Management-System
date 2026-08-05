@@ -1,5 +1,5 @@
 {
-  "name": "bitecraft-restaurant-management-system",
+  "name": "platecraft-restaurant-management-system",
   "version": "1.0.0",
   "private": true,
   "description": "A complete restaurant platform — customer website and full admin panel — built with Next.js 15, Tailwind CSS 4 and Ant Design 5.",
@@ -9,13 +9,13 @@
     "url": "https://github.com/prantoshikder"
   },
   "license": "MIT",
-  "homepage": "https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System#readme",
+  "homepage": "https://github.com/prantoshikder/Platecraft-Restaurant-Management-System#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System.git"
+    "url": "git+https://github.com/prantoshikder/Platecraft-Restaurant-Management-System.git"
   },
   "bugs": {
-    "url": "https://github.com/prantoshikder/Bitecraft-Restaurant-Management-System/issues"
+    "url": "https://github.com/prantoshikder/Platecraft-Restaurant-Management-System/issues"
   },
   "keywords": [
     "restaurant",

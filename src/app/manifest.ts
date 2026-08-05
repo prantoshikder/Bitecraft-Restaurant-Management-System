@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "BiteCraft Restaurant",
-    short_name: "BiteCraft",
+    name: "PlateCraft Restaurant",
+    short_name: "PlateCraft",
     description: "Delicious food made with love & passion — book a table and explore our menu.",
     start_url: "/",
     display: "standalone",

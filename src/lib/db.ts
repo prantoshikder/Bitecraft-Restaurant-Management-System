@@ -7,10 +7,10 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const DB_FILE = path.join(DATA_DIR, "db.json");
 
 /** Cached across hot reloads in dev so we don't hit disk on every request. */
-const globalForDb = globalThis as unknown as { __bitecraftDb?: DB };
+const globalForDb = globalThis as unknown as { __platecraftDb?: DB };
 
 function load(): DB {
-  if (globalForDb.__bitecraftDb) return globalForDb.__bitecraftDb;
+  if (globalForDb.__platecraftDb) return globalForDb.__platecraftDb;
 
   let db: DB;
   try {
@@ -24,7 +24,7 @@ function load(): DB {
     db = buildSeed();
   }
 
-  globalForDb.__bitecraftDb = db;
+  globalForDb.__platecraftDb = db;
   return db;
 }
 
@@ -42,7 +42,7 @@ export function getDb(): DB {
 }
 
 export function saveDb(db: DB) {
-  globalForDb.__bitecraftDb = db;
+  globalForDb.__platecraftDb = db;
   persist(db);
 }
 

@@ -111,7 +111,7 @@ export default function Hero() {
           >
             <SmartImage
               src={IMG.hero}
-              alt="Signature BiteCraft plate"
+              alt="Signature PlateCraft plate"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 500px"
