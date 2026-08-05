@@ -1,6 +1,6 @@
+import ReviewForm from "@/components/marketing/ReviewForm";
 import JsonLd from "@/components/seo/JsonLd";
 import PageBanner from "@/components/site/PageBanner";
-import ReviewForm from "@/components/site/ReviewForm";
 import Reveal, { Stagger, StaggerItem } from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { list } from "@/lib/db";
@@ -19,9 +19,18 @@ export const metadata = pageMeta({
   image: IMG.interiors[2],
 });
 
-function Stars({ rating, className = "" }: { rating: number; className?: string }) {
+function Stars({
+  rating,
+  className = "",
+}: {
+  rating: number;
+  className?: string;
+}) {
   return (
-    <span className={`inline-flex gap-0.5 ${className}`} aria-label={`${rating} out of 5 stars`}>
+    <span
+      className={`inline-flex gap-0.5 ${className}`}
+      aria-label={`${rating} out of 5 stars`}
+    >
       {Array.from({ length: 5 }).map((_, i) => (
         <FiStar
           key={i}
@@ -37,7 +46,9 @@ export default function ReviewsPage() {
   const reviews = list("reviews").filter((r) => r.approved);
 
   const total = reviews.length;
-  const average = total ? reviews.reduce((sum, r) => sum + r.rating, 0) / total : 0;
+  const average = total
+    ? reviews.reduce((sum, r) => sum + r.rating, 0) / total
+    : 0;
   const breakdown = [5, 4, 3, 2, 1].map((star) => ({
     star,
     count: reviews.filter((r) => r.rating === star).length,
@@ -45,7 +56,9 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Reviews", path: "/reviews" }])} />
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Reviews", path: "/reviews" }])}
+      />
 
       <PageBanner
         title="Guest Reviews"
@@ -71,14 +84,20 @@ export default function ReviewsPage() {
             <div className="space-y-2.5">
               {breakdown.map(({ star, count }) => (
                 <div key={star} className="flex items-center gap-3">
-                  <span className="w-12 shrink-0 text-xs font-semibold text-ink/70">{star} star</span>
+                  <span className="w-12 shrink-0 text-xs font-semibold text-ink/70">
+                    {star} star
+                  </span>
                   <span className="h-2 flex-1 overflow-hidden rounded-full bg-cream-2">
                     <span
                       className="block h-full rounded-full bg-brand"
-                      style={{ width: total ? `${(count / total) * 100}%` : "0%" }}
+                      style={{
+                        width: total ? `${(count / total) * 100}%` : "0%",
+                      }}
                     />
                   </span>
-                  <span className="w-8 shrink-0 text-right text-xs text-muted">{count}</span>
+                  <span className="w-8 shrink-0 text-right text-xs text-muted">
+                    {count}
+                  </span>
                 </div>
               ))}
             </div>
@@ -119,7 +138,9 @@ export default function ReviewsPage() {
                         />
                       </span>
                       <div>
-                        <p className="text-sm font-bold text-ink">{review.name}</p>
+                        <p className="text-sm font-bold text-ink">
+                          {review.name}
+                        </p>
                         <p className="text-[12px] text-muted">
                           {review.role} · {formatDate(review.createdAt)}
                         </p>
@@ -140,19 +161,26 @@ export default function ReviewsPage() {
             <span className="eyebrow">Your Turn</span>
             <h2 className="section-title mt-3 text-ink">Been In Recently?</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-              Reviews are the most useful thing a guest can leave behind — they tell the kitchen what
-              landed, and they help the next person decide where to eat. It takes a minute.
+              Reviews are the most useful thing a guest can leave behind — they
+              tell the kitchen what landed, and they help the next person decide
+              where to eat. It takes a minute.
             </p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
               Something went wrong instead?{" "}
-              <Link href="/contact" className="font-semibold text-brand hover:underline">
+              <Link
+                href="/contact"
+                className="font-semibold text-brand hover:underline"
+              >
                 Tell us directly
               </Link>{" "}
               and we will put it right.
             </p>
           </Reveal>
 
-          <Reveal direction="left" className="rounded-3xl border border-ink/8 bg-white p-8">
+          <Reveal
+            direction="left"
+            className="rounded-3xl border border-ink/8 bg-white p-8"
+          >
             <ReviewForm />
           </Reveal>
         </div>

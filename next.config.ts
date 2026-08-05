@@ -13,6 +13,17 @@ import type { NextConfig } from "next";
 const usingTurbopack = process.env.TURBOPACK === "1";
 
 const nextConfig: NextConfig = {
+  /**
+   * `next build` and `next dev` both write to `.next` by default, so running a
+   * build while the dev server is up wipes the chunks the dev server is still
+   * serving. It then throws ENOENT on `_buildManifest.js.tmp…` for every edit
+   * until you restart it and delete `.next`.
+   *
+   * Set NEXT_DIST_DIR to give a build its own directory and the two can run
+   * side by side:  NEXT_DIST_DIR=.next-build npm run build
+   */
+  distDir: process.env.NEXT_DIST_DIR || ".next",
+
   images: {
     // Admins can paste any image URL from the panel, so allow any remote host.
     // An unconfigured host would otherwise make next/image throw at render time

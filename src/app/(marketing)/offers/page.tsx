@@ -1,14 +1,14 @@
+import NewsletterForm from "@/components/marketing/NewsletterForm";
+import PromoCode from "@/components/marketing/PromoCode";
 import JsonLd from "@/components/seo/JsonLd";
-import NewsletterForm from "@/components/site/NewsletterForm";
 import PageBanner from "@/components/site/PageBanner";
-import PromoCode from "@/components/site/PromoCode";
 import Reveal, { Stagger, StaggerItem } from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { list } from "@/lib/db";
 import { IMG } from "@/lib/images";
 import { breadcrumbSchema, offerSchema, pageMeta } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
-import { HOW_TO_REDEEM, OFFER_TERMS, PERKS } from "@/temp/offers";
+import { HOW_TO_REDEEM, OFFER_TERMS, PERKS } from "@/temp/marketing/offers";
 import Link from "next/link";
 import { FiArrowRight, FiCalendar, FiTag } from "react-icons/fi";
 
@@ -50,15 +50,16 @@ export default function OffersPage() {
             <span className="eyebrow">Running Right Now</span>
             <h2 className="section-title mt-3 text-ink">Deals On The Table</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              Tap any code to copy it, then paste it at checkout or mention it when you book. New
-              deals land every fortnight — subscribers see them first.
+              Tap any code to copy it, then paste it at checkout or mention it
+              when you book. New deals land every fortnight — subscribers see
+              them first.
             </p>
           </Reveal>
 
           {live.length === 0 ? (
             <p className="mt-12 rounded-2xl border border-dashed border-ink/15 bg-white p-12 text-center text-sm text-muted">
-              No deals are running at the moment. Join the mailing list below and you will hear about
-              the next one before it goes public.
+              No deals are running at the moment. Join the mailing list below
+              and you will hear about the next one before it goes public.
             </p>
           ) : (
             <Stagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -73,7 +74,7 @@ export default function OffersPage() {
                         sizes="(max-width:768px) 100vw, 380px"
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
+                      <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/85 to-ink/40" />
                     </div>
 
                     <div className="relative flex flex-1 flex-col p-7">
@@ -81,8 +82,12 @@ export default function OffersPage() {
                         <FiTag className="size-3" /> {offer.discount}% off
                       </span>
 
-                      <h3 className="mt-5 text-2xl font-extrabold leading-tight">{offer.title}</h3>
-                      <p className="mt-1 text-sm text-brand-light">{offer.subtitle}</p>
+                      <h3 className="mt-5 text-2xl font-extrabold leading-tight">
+                        {offer.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-brand-light">
+                        {offer.subtitle}
+                      </p>
 
                       <p className="mt-4 flex items-center gap-2 text-[13px] text-white/55">
                         <FiCalendar className="size-4 shrink-0 text-brand-light" />
@@ -95,7 +100,8 @@ export default function OffersPage() {
                           href="/menu"
                           className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-white transition-colors hover:text-brand-light"
                         >
-                          Order with this code <FiArrowRight className="size-4" />
+                          Order with this code{" "}
+                          <FiArrowRight className="size-4" />
                         </Link>
                       </div>
                     </div>
@@ -130,8 +136,12 @@ export default function OffersPage() {
                   <span className="grid size-11 place-items-center rounded-full bg-brand text-sm font-extrabold text-white">
                     {i + 1}
                   </span>
-                  <h3 className="mt-5 text-lg font-bold text-ink">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+                  <h3 className="mt-5 text-lg font-bold text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {step.text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -144,13 +154,20 @@ export default function OffersPage() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal direction="right">
             <span className="eyebrow">Get Them First</span>
-            <h2 className="section-title mt-3 text-ink">Deals Before Everyone Else</h2>
+            <h2 className="section-title mt-3 text-ink">
+              Deals Before Everyone Else
+            </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-              Subscribers get codes that never make it onto this page, plus first access to tasting
-              nights and a treat on their birthday.
+              Subscribers get codes that never make it onto this page, plus
+              first access to tasting nights and a treat on their birthday.
             </p>
             <div className="mt-7 max-w-md">
-              <NewsletterForm tone="light" layout="inline" cta="Join the list" source="offers-page" />
+              <NewsletterForm
+                tone="light"
+                layout="inline"
+                cta="Join the list"
+                source="offers-page"
+              />
             </div>
           </Reveal>
 
@@ -161,8 +178,12 @@ export default function OffersPage() {
                   <span className="grid size-11 place-items-center rounded-xl bg-brand-soft text-brand">
                     <Icon className="size-5" />
                   </span>
-                  <h3 className="mt-4 text-[15px] font-bold text-ink">{title}</h3>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{text}</p>
+                  <h3 className="mt-4 text-[15px] font-bold text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
+                    {text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -174,10 +195,15 @@ export default function OffersPage() {
       <section className="bg-cream-2 pb-16 pt-4 lg:pb-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl rounded-2xl border border-ink/8 bg-white p-8">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-ink">Offer Terms</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-ink">
+              Offer Terms
+            </h2>
             <ul className="mt-4 space-y-2.5">
               {OFFER_TERMS.map((term) => (
-                <li key={term} className="flex gap-3 text-[13px] leading-relaxed text-muted">
+                <li
+                  key={term}
+                  className="flex gap-3 text-[13px] leading-relaxed text-muted"
+                >
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
                   {term}
                 </li>
@@ -185,7 +211,10 @@ export default function OffersPage() {
             </ul>
             <p className="mt-5 text-[13px] text-muted">
               Full details in our{" "}
-              <Link href="/terms" className="font-semibold text-brand hover:underline">
+              <Link
+                href="/terms"
+                className="font-semibold text-brand hover:underline"
+              >
                 terms &amp; conditions
               </Link>
               .

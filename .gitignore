@@ -17,3 +17,6 @@ package-lock.json
 yarn.lock
 
 CLAUDE.md
+
+# isolated output for builds run while the dev server is up (NEXT_DIST_DIR)
+.next-build

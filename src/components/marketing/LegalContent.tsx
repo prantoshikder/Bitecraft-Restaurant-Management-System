@@ -1,6 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
-import type { LegalSection } from "@/temp/legal";
-import { LAST_UPDATED } from "@/temp/legal";
+import type { LegalSection } from "@/temp/marketing/legal";
+import { LAST_UPDATED } from "@/temp/marketing/legal";
 
 /**
  * Shared body for the Privacy Policy and Terms pages: a sticky contents list

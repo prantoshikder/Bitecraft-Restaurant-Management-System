@@ -1,9 +1,9 @@
+import LegalContent from "@/components/marketing/LegalContent";
 import JsonLd from "@/components/seo/JsonLd";
-import LegalContent from "@/components/site/LegalContent";
 import PageBanner from "@/components/site/PageBanner";
 import { IMG } from "@/lib/images";
 import { breadcrumbSchema, pageMeta } from "@/lib/seo";
-import { PRIVACY_SECTIONS } from "@/temp/legal";
+import { PRIVACY_SECTIONS } from "@/temp/marketing/legal";
 
 export const metadata = pageMeta({
   title: "Privacy Policy",
@@ -15,7 +15,9 @@ export const metadata = pageMeta({
 export default function PrivacyPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Privacy Policy", path: "/privacy" }])} />
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Privacy Policy", path: "/privacy" }])}
+      />
 
       <PageBanner
         title="Privacy Policy"

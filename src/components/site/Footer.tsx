@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MORE_LINKS, QUICK_LINKS, SOCIALS } from "@/temp/layout";
-import NewsletterForm from "./NewsletterForm";
+import NewsletterForm from "@/components/marketing/NewsletterForm";
 import Logo from "./Logo";
 
 export default function Footer() {

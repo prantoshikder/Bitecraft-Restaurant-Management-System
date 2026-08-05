@@ -1,10 +1,10 @@
+import Accordion from "@/components/marketing/Accordion";
 import JsonLd from "@/components/seo/JsonLd";
-import Accordion from "@/components/site/Accordion";
 import PageBanner from "@/components/site/PageBanner";
 import Reveal from "@/components/ui/Reveal";
 import { IMG } from "@/lib/images";
 import { breadcrumbSchema, faqSchema, pageMeta } from "@/lib/seo";
-import { ALL_FAQS, FAQ_GROUPS } from "@/temp/faq";
+import { ALL_FAQS, FAQ_GROUPS } from "@/temp/marketing/faq";
 import Link from "next/link";
 import { FiMail, FiMessageCircle, FiPhone } from "react-icons/fi";
 
@@ -20,7 +20,12 @@ export default function FaqPage() {
   return (
     <>
       {/* FAQPage markup lets Google show these answers directly in the results. */}
-      <JsonLd data={[faqSchema(ALL_FAQS), breadcrumbSchema([{ name: "FAQ", path: "/faq" }])]} />
+      <JsonLd
+        data={[
+          faqSchema(ALL_FAQS),
+          breadcrumbSchema([{ name: "FAQ", path: "/faq" }]),
+        ]}
+      />
 
       <PageBanner
         title="Frequently Asked Questions"
@@ -34,19 +39,28 @@ export default function FaqPage() {
           <div className="space-y-12">
             {FAQ_GROUPS.map((group, gi) => (
               <Reveal key={group.title} delay={gi * 0.04}>
-                <h2 className="mb-5 text-xl font-extrabold text-ink">{group.title}</h2>
-                <Accordion items={group.items} defaultOpen={gi === 0 ? 0 : -1} />
+                <h2 className="mb-5 text-xl font-extrabold text-ink">
+                  {group.title}
+                </h2>
+                <Accordion
+                  items={group.items}
+                  defaultOpen={gi === 0 ? 0 : -1}
+                />
               </Reveal>
             ))}
           </div>
 
           {/* Sidebar: every unanswered question is a lost booking — give them an exit. */}
-          <Reveal direction="left" className="lg:sticky lg:top-28 lg:self-start">
+          <Reveal
+            direction="left"
+            className="lg:sticky lg:top-28 lg:self-start"
+          >
             <div className="rounded-3xl bg-ink p-8 text-white">
               <FiMessageCircle className="size-9 text-brand-light" />
               <h2 className="mt-5 text-xl font-extrabold">Still wondering?</h2>
               <p className="mt-2 text-sm leading-relaxed text-white/55">
-                Our team answers the phone during opening hours and replies to email within a day.
+                Our team answers the phone during opening hours and replies to
+                email within a day.
               </p>
 
               <div className="mt-7 space-y-4">

@@ -1,9 +1,9 @@
+import LegalContent from "@/components/marketing/LegalContent";
 import JsonLd from "@/components/seo/JsonLd";
-import LegalContent from "@/components/site/LegalContent";
 import PageBanner from "@/components/site/PageBanner";
 import { IMG } from "@/lib/images";
 import { breadcrumbSchema, pageMeta } from "@/lib/seo";
-import { TERMS_SECTIONS } from "@/temp/legal";
+import { TERMS_SECTIONS } from "@/temp/marketing/legal";
 
 export const metadata = pageMeta({
   title: "Terms & Conditions",
@@ -15,7 +15,11 @@ export const metadata = pageMeta({
 export default function TermsPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Terms & Conditions", path: "/terms" }])} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Terms & Conditions", path: "/terms" },
+        ])}
+      />
 
       <PageBanner
         title="Terms & Conditions"

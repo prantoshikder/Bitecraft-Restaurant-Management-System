@@ -1,11 +1,17 @@
+import EnquiryForm, { EnquiryField } from "@/components/marketing/EnquiryForm";
 import JsonLd from "@/components/seo/JsonLd";
-import EnquiryForm, { type EnquiryField } from "@/components/site/EnquiryForm";
 import PageBanner from "@/components/site/PageBanner";
 import Reveal, { Stagger, StaggerItem } from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { IMG } from "@/lib/images";
 import { breadcrumbSchema, pageMeta } from "@/lib/seo";
-import { CATERING_NOTES, EVENT_TYPES, PACKAGES, PROCESS, SPACES } from "@/temp/catering";
+import {
+  CATERING_NOTES,
+  EVENT_TYPES,
+  PACKAGES,
+  PROCESS,
+  SPACES,
+} from "@/temp/marketing/catering";
 import { FiCheck, FiUsers } from "react-icons/fi";
 
 export const metadata = pageMeta({
@@ -19,17 +25,39 @@ export const metadata = pageMeta({
 /** Enquiry fields — the answers a coordinator needs before they can quote. */
 const FIELDS: EnquiryField[] = [
   { name: "name", label: "Your name", required: true, placeholder: "Jane Doe" },
-  { name: "email", label: "Email", type: "email", required: true, placeholder: "jane@company.com" },
-  { name: "phone", label: "Phone", type: "tel", placeholder: "(+123) 456 7890" },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    required: true,
+    placeholder: "jane@company.com",
+  },
+  {
+    name: "phone",
+    label: "Phone",
+    type: "tel",
+    placeholder: "(+123) 456 7890",
+  },
   {
     name: "eventType",
     label: "Event type",
     type: "select",
     required: true,
-    options: ["Corporate", "Wedding or celebration", "Social or community", "Off-site catering"],
+    options: [
+      "Corporate",
+      "Wedding or celebration",
+      "Social or community",
+      "Off-site catering",
+    ],
   },
   { name: "eventDate", label: "Preferred date", type: "date", required: true },
-  { name: "guests", label: "Approximate guests", type: "number", required: true, placeholder: "40" },
+  {
+    name: "guests",
+    label: "Approximate guests",
+    type: "number",
+    required: true,
+    placeholder: "40",
+  },
   {
     name: "package",
     label: "Package of interest",
@@ -46,14 +74,19 @@ const FIELDS: EnquiryField[] = [
     name: "message",
     label: "Tell us about the event",
     type: "textarea",
-    placeholder: "Dietary requirements, timings, styling, anything else we should know…",
+    placeholder:
+      "Dietary requirements, timings, styling, anything else we should know…",
   },
 ];
 
 export default function CateringPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Catering & Events", path: "/catering" }])} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Catering & Events", path: "/catering" },
+        ])}
+      />
 
       <PageBanner
         title="Catering & Private Events"
@@ -69,8 +102,9 @@ export default function CateringPage() {
             <span className="eyebrow">Whatever The Occasion</span>
             <h2 className="section-title mt-3 text-ink">Events We Cater</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              From a boardroom lunch for twelve to a rooftop wedding for two hundred — same kitchen,
-              same produce, planned by a team that does this every week.
+              From a boardroom lunch for twelve to a rooftop wedding for two
+              hundred — same kitchen, same produce, planned by a team that does
+              this every week.
             </p>
           </Reveal>
 
@@ -82,7 +116,9 @@ export default function CateringPage() {
                     <Icon className="size-5" />
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-ink">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -97,8 +133,8 @@ export default function CateringPage() {
             <span className="eyebrow">Menus</span>
             <h2 className="section-title mt-3">Packages & Pricing</h2>
             <p className="mt-4 text-sm leading-relaxed text-white/55">
-              Prices are per person and exclude drinks. Every package can be adjusted around
-              allergies, dietary requirements and your budget.
+              Prices are per person and exclude drinks. Every package can be
+              adjusted around allergies, dietary requirements and your budget.
             </p>
           </Reveal>
 
@@ -109,7 +145,7 @@ export default function CateringPage() {
                   className={`relative flex h-full flex-col rounded-3xl p-8 ${
                     pkg.popular
                       ? "bg-brand text-white shadow-glow"
-                      : "border border-white/10 bg-white/[0.04]"
+                      : "border border-white/10 bg-white/4"
                   }`}
                 >
                   {pkg.popular ? (
@@ -119,13 +155,23 @@ export default function CateringPage() {
                   ) : null}
 
                   <h3 className="text-xl font-extrabold">{pkg.name}</h3>
-                  <p className={`mt-2 text-sm ${pkg.popular ? "text-white/80" : "text-white/50"}`}>
+                  <p
+                    className={`mt-2 text-sm ${pkg.popular ? "text-white/80" : "text-white/50"}`}
+                  >
                     {pkg.summary}
                   </p>
 
                   <p className="mt-6 flex items-end gap-1.5">
-                    <span className="text-4xl font-extrabold leading-none">{pkg.price}</span>
-                    <span className={pkg.popular ? "text-sm text-white/75" : "text-sm text-white/45"}>
+                    <span className="text-4xl font-extrabold leading-none">
+                      {pkg.price}
+                    </span>
+                    <span
+                      className={
+                        pkg.popular
+                          ? "text-sm text-white/75"
+                          : "text-sm text-white/45"
+                      }
+                    >
                       {pkg.unit}
                     </span>
                   </p>
@@ -136,7 +182,13 @@ export default function CateringPage() {
                         <FiCheck
                           className={`mt-0.5 size-4 shrink-0 ${pkg.popular ? "text-white" : "text-brand"}`}
                         />
-                        <span className={pkg.popular ? "text-white/90" : "text-white/65"}>{line}</span>
+                        <span
+                          className={
+                            pkg.popular ? "text-white/90" : "text-white/65"
+                          }
+                        >
+                          {line}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -177,13 +229,17 @@ export default function CateringPage() {
                   </div>
                   <div className="p-7">
                     <h3 className="text-lg font-bold text-ink">{space.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{space.description}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {space.description}
+                    </p>
                     <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t border-ink/8 pt-5 text-[13px] text-ink/70">
                       <span className="inline-flex items-center gap-1.5">
-                        <FiUsers className="size-4 text-brand" /> {space.seated} seated
+                        <FiUsers className="size-4 text-brand" /> {space.seated}{" "}
+                        seated
                       </span>
                       <span className="inline-flex items-center gap-1.5">
-                        <FiUsers className="size-4 text-brand" /> {space.standing} standing
+                        <FiUsers className="size-4 text-brand" />{" "}
+                        {space.standing} standing
                       </span>
                     </div>
                   </div>
@@ -206,9 +262,15 @@ export default function CateringPage() {
             {PROCESS.map((item) => (
               <StaggerItem key={item.step}>
                 <div className="h-full rounded-2xl bg-white p-7">
-                  <span className="font-script text-4xl text-brand">{item.step}</span>
-                  <h3 className="mt-3 text-lg font-bold text-ink">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+                  <span className="font-script text-4xl text-brand">
+                    {item.step}
+                  </span>
+                  <h3 className="mt-3 text-lg font-bold text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {item.text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -223,8 +285,8 @@ export default function CateringPage() {
             <span className="eyebrow">Let&apos;s Talk</span>
             <h2 className="section-title mt-3 text-ink">Request A Proposal</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              Tell us the date and the headcount and you will have a menu, a room recommendation and
-              an itemised quote within one business day.
+              Tell us the date and the headcount and you will have a menu, a
+              room recommendation and an itemised quote within one business day.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -237,7 +299,10 @@ export default function CateringPage() {
             </ul>
           </Reveal>
 
-          <Reveal direction="left" className="rounded-3xl border border-ink/8 bg-white p-8">
+          <Reveal
+            direction="left"
+            className="rounded-3xl border border-ink/8 bg-white p-8"
+          >
             <EnquiryForm
               fields={FIELDS}
               subject="Catering enquiry"
